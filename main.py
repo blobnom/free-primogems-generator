@@ -12,7 +12,7 @@ PLUS_IMAGE = PLUS_IMAGE.resize((55, 55))
 PRIMOGEM_IMAGE = Image.open(ASSETS_PATH / "primogem.png")
 PRIMOGEM_IMAGE = PRIMOGEM_IMAGE.resize((90, 90))
 
-primogems = int(input("How many primogems do you want the screenshot to show: ") or 0)
+primogems = (input("How many primogems do you want the screenshot to show: ") or "0").strip()
 
 img = Image.new("RGBA", (BACKGROUND_IMAGE.width, BACKGROUND_IMAGE.height), (0, 0, 0, 0))
 img.paste(BACKGROUND_IMAGE, (0, 0))
@@ -50,7 +50,7 @@ img = Image.alpha_composite(img, plus_img)
 draw = ImageDraw.Draw(img)
 draw.text(
     (235, 46),
-    text=str(primogems),
+    text=primogems,
     font=FONT,
     anchor="mm"
 )
